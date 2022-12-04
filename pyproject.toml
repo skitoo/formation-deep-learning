@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "formation-deep-learning"
+version = "0.1.0"
+description = ""
+authors = ["Alexis Couronne <alexis@skitoo.net>"]
+readme = "README.md"
+packages = [{include = "formation_deep_learning"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.23.5"
+matplotlib = "^3.6.2"
+scikit-learn = "^1.1.3"
+
+
+[tool.poetry.group.dev.dependencies]
+notebook = "^6.5.2"
+
+
+[tool.pyright]
+stubPath = ""
+venv = ".venv"
+pythonVersion = "3.10"
+
+[tool.pylint]
+ignore=".venv"
+init-hook="import sys; from pathlib import Path; sys.path.append(str(next(Path.cwd().glob('.venv/lib/*/site-packages'))))"
+py-version = "3.10"
+extension-pkg-allow-list=["pygame"]
+disable = [
+  "too-few-public-methods"
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
